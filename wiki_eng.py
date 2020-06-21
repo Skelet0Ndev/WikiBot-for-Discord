@@ -101,4 +101,4 @@ async def on_message(message):
         except WikipediaException as e:
             print(repr(e))
 
-client.run('NzI0MTUyMTY5NzExNzk2MjQ1.Xu8CbA.Vh90krqy5s1zDWSGY-aGHZj3uHg')
+client.run('Your Token Here')
