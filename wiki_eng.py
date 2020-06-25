@@ -19,7 +19,7 @@ async def on_message(message):
         await message.channel.send('''`Quickstart with Wiki-bot (please state the parameters or requests after the command divided by a single space):`
     "!wb"(Wiki Brief) - Briefly about somewhat. 
     "!ws"(Wiki Summary) - Summary of an article.
-    "!wm"(Wiki Multiply) - Used for addressing disambiguation issues. Returns a table of different meanings of your request. 
+    "!wm"(Wiki Multiple) - Used for addressing disambiguation issues. Returns a table of different meanings of your request. 
     "!wp"(Wiki Page) - Returns the URL of the requested page.
     "!wl"(Wiki Language) - Adjusts the Wikipedia language. Default: English. **Language short names only. Example: "!wl en", "!wl fr", "!wl de", "!wl ru"**
             *Note: Request may refer to more than one page. For more certainty, state the subject of the request.
@@ -37,7 +37,7 @@ async def on_message(message):
         except WikipediaException as e:
             print(repr(e))
 
-    if message.content.startswith('!wm'):       #wikipedia brief
+    if message.content.startswith('!wm'):       #wikipedia multiple
         try:
             s = message.content
             op = wikipedia.search(s[4:100], results=10)
