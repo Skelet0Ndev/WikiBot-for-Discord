@@ -125,4 +125,4 @@ async def on_message(message):
         except Exception as e:
             print(repr(e))
 
-client.run('NzI0MTUyMTY5NzExNzk2MjQ1.Xu8ZLA.fmFEHVaTCSy_X7oLHzlZj_4lC1Q')
+client.run('Token here')
