@@ -40,12 +40,15 @@ async def on_message(message):
     if message.content.startswith('!wm'):       #wikipedia brief
         try:
             s = message.content
-            op = wikipedia.search(s[4:100], results=10)
+            op = wikipedia.search(s[4:100], results=20)
             x = int(0)
             repl = ''
-            for x in range (len(op)):
-                repl = repl + op[x] + '\n '
-            await message.channel.send('`"' + s[4:100] + '"` may refer to: \n' + repl)
+            for x in range (19):
+                repl = repl + '• ' + op[x] + '\n '
+            ar = '`' + s[4:100] + '` may refer to: \n\n' + repl
+            if len(op) > 19:
+                ar = ar + '... \nMore on Wikipedia web-page.'
+            await message.channel.send(ar)
         except WikipediaException as e:
             print(repr(e))
 
@@ -59,12 +62,12 @@ async def on_message(message):
         except wikipedia.exceptions.DisambiguationError as e:
             print(e.options)
             erpl = '**Disambiguation error!** `' + s[4:100] + '` may refer to these pages. Please, select one of the options. Don\'t forget about the command!\n'
-            op = wikipedia.search(s[4:100], results=10)
+            op = wikipedia.search(s[4:100], results=15)
             x = int(0)
             repl = ''
-            for x in range (9):
+            for x in range (14):
                 repl = repl + '• ' + op[x] + '\n '
-            if len(op) > 9:
+            if len(op) > 14:
                 await message.channel.send(erpl + repl + 'etc. \nFor more results go to Wikipedia\'s page')
             else:
                 await message.channel.send(erpl + repl)
@@ -85,12 +88,12 @@ async def on_message(message):
         except wikipedia.exceptions.DisambiguationError as e:
             print(e.options)
             erpl = '**Disambiguation error!** `' + s[4:100] + '` may refer to these pages. Please, select one of the options. Don\'t forget about the command!\n'
-            op = wikipedia.search(s[4:100], results=10)
+            op = wikipedia.search(s[4:100], results=15)
             x = int(0)
             repl = ''
-            for x in range (9):
+            for x in range (14):
                 repl = repl + '• ' + op[x] + '\n '
-            if len(op) > 9:
+            if len(op) > 14:
                 await message.channel.send(erpl + repl + 'etc. \nFor more results go to Wikipedia\'s page')
             else:
                 await message.channel.send(erpl + repl)
@@ -109,12 +112,12 @@ async def on_message(message):
         except wikipedia.exceptions.DisambiguationError as e:
             print(e.options)
             erpl = '**Disambiguation error!** `' + s[4:100] + '` may refer to these pages. Please, select one of the options. Don\'t forget about the command!\n'
-            op = wikipedia.search(s[4:100], results=10)
+            op = wikipedia.search(s[4:100], results=15)
             x = int(0)
             repl = ''
-            for x in range (9):
+            for x in range (14):
                 repl = repl + '• ' + op[x] + '\n '
-            if len(op) > 9:
+            if len(op) > 14:
                 await message.channel.send(erpl + repl + 'etc. \nFor more results go to Wikipedia\'s page.')
             else:
                 await message.channel.send(erpl + repl)
